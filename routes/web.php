@@ -30,4 +30,8 @@ Route::get('/homepage', function () {
     return view('homepage');
 })->name('homepage');
 
+Route::get('/', function () {
+    return 'ok';
+});
+
 require __DIR__.'/auth.php';

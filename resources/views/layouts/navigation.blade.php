@@ -2,7 +2,7 @@
 <nav class="custom-navbar">
     <div class="nav-container" id="navContainer">
         <!-- Logo e Nome -->
-        <a href="{{ route('dashboard') }}" class="nav-brand">
+        <a href="{{ route('homepage') }}" class="nav-brand">
             <img src="https://santecdesentupidora.com.br/wp-content/uploads/2024/08/logo-santec-desentupidora.png" 
                  alt="Santec Desentupidora" 
                  class="nav-brand-logo">
@@ -14,8 +14,8 @@
         <!-- Links de Navegação -->
         <ul class="nav-links">
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" 
-                   href="{{ route('dashboard') }}">
+                <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}" 
+                   href="{{ route('homepage') }}">
                     Início
                 </a>
             </li>
