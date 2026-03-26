@@ -11,7 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -209,6 +210,19 @@
             animation: fadeIn 1s ease;
         }
 
+        /* ajuste apenas para desktop */
+        @media (min-width: 1024px) {
+            .hero {
+                align-items: flex-start;
+                padding-top: 7rem;
+                /* empurra menos o conteúdo, aproxima da navbar */
+            }
+
+            .hero-text {
+                margin-top: 1rem;
+            }
+        }
+
         .hero-text h3 {
             font-weight: 400;
             letter-spacing: 3px;
@@ -248,7 +262,7 @@
             align-items: center;
             gap: 50px;
             max-width: 1400px;
-            margin: -200px auto 100px auto;
+            margin: -180px auto 100px auto;
             position: relative;
             z-index: 10;
             flex-wrap: nowrap;
@@ -326,23 +340,30 @@
 
         /* ===================== SERVIÇOS ===================== */
         .services {
-            padding: 180px 8%;
-            background: #f7f7f7;
-            margin-top: -100px;
+            padding: 120px 8% 60px;
+            /* menos padding-top para subir */
+            background-color: hsl(220, 14%, 94%);
+            margin-top: -180px;
+            /* elevar ainda mais sobre o bloco anterior */
         }
 
         .services-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
+            /* reduz espaçamento abaixo do título */
         }
 
         .services-header h2 {
             font-size: 64px;
-            font-weight: 700;
+            font-weight: 300;
+            /* lighter like depoimentos */
+            margin-bottom: 15px;
+            color: #1b2631;
         }
 
         .services-header span {
             color: #00a859;
+            font-weight: 700;
         }
 
         .services-header p {
@@ -350,14 +371,88 @@
             margin: auto;
             margin-top: 15px;
             font-size: 18px;
-            color: #666;
+            color: hsl(215, 16%, 47%);
+            line-height: 1.6;
         }
 
         .services-container {
             display: flex;
             align-items: center;
             gap: 30px;
-            margin-top: 80px;
+            margin-top: 30px;
+        }
+
+        /* ===================== SERVIÇOS - carrossel home ===================== */
+        .container-img {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .slide {
+            display: flex;
+            align-items: flex-end;
+            height: 70vh;
+            min-height: 500px;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .pagina {
+            width: 160px;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.6s ease-in-out;
+            flex-shrink: 0;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagina:hover {
+            width: 340px;
+            height: 500px;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .pagina img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .pagina:hover img {
+            transform: scale(1.05);
+        }
+
+        .container-img::-webkit-scrollbar {
+            display: none;
+        }
+
+        .container-img {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @media (max-width: 768px) {
+            .pagina {
+                width: 130px;
+                height: 380px;
+            }
+
+            .pagina:hover {
+                width: 280px;
+                height: 430px;
+            }
+
+            .slide {
+                height: 60vh;
+                min-height: 400px;
+            }
         }
 
         .services-slider {
@@ -426,8 +521,8 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -474,7 +569,8 @@
                                 top: targetElement.offsetTop - 100,
                                 behavior: 'smooth'
                             });
-                            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove(
+                                'active'));
                             this.classList.add('active');
                         }
                     }
@@ -499,7 +595,33 @@
                 });
             });
 
-            // CARROSSEL DEPOIMENTOS
+            // CARROSSEL DEPOIMENTOS (seção homepage)
+            const depoimentosTrack = document.getElementById('depoimentos-track');
+            let depoimentosIndex = 0;
+
+            window.moveCarousel = function(direction) {
+                if (!depoimentosTrack) return;
+
+                const items = Array.from(depoimentosTrack.children);
+                if (items.length === 0) return;
+
+                depoimentosIndex += direction;
+                if (depoimentosIndex < 0) {
+                    depoimentosIndex = items.length - 1;
+                } else if (depoimentosIndex >= items.length) {
+                    depoimentosIndex = 0;
+                }
+
+                const itemWidth = items[0].getBoundingClientRect().width;
+                depoimentosTrack.style.transform = `translateX(-${depoimentosIndex * itemWidth}px)`;
+            };
+
+            // Se quiser auto-play do depoimento:
+            if (depoimentosTrack) {
+                setInterval(() => window.moveCarousel(1), 6000);
+            }
+
+            // CARROSSEL DEPOIMENTOS (versão antiga com cards + dots, opcional)
             const cards = document.getElementById("cards");
             const dotsContainer = document.getElementById("dots");
             if (cards && dotsContainer) {
@@ -537,6 +659,93 @@
                 setInterval(autoSlide, 4000);
             }
         });
+        (function() {
+            const track = document.getElementById('carousel-track');
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const slides = track.children;
+            let current = 0;
+
+            function getVisible() {
+                if (window.innerWidth >= 1024) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            }
+
+            function getMaxIndex() {
+                return Math.max(0, slides.length - getVisible());
+            }
+
+            function getSlideWidth() {
+                if (!slides[0]) return 0;
+                const gap = 40; // gap-10 = 2.5rem = 40px
+                return slides[0].offsetWidth + gap;
+            }
+
+            function updatePosition() {
+                if (current > getMaxIndex()) current = getMaxIndex();
+                track.style.transform = 'translateX(-' + (current * getSlideWidth()) + 'px)';
+                updateDots();
+            }
+
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                const total = getMaxIndex() + 1;
+                for (let i = 0; i < total; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'w-3 h-3 rounded-full transition-all duration-300 ' +
+                        (i === current ? 'bg-green-600 scale-110' : 'bg-gray-300 hover:bg-gray-400');
+                    dot.addEventListener('click', () => {
+                        current = i;
+                        updatePosition();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateDots() {
+                const dots = dotsContainer.children;
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].className = 'w-3 h-3 rounded-full transition-all duration-300 ' +
+                        (i === current ? 'bg-green-600 scale-110' : 'bg-gray-300 hover:bg-gray-400');
+                }
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (current > 0) {
+                    current--;
+                    updatePosition();
+                }
+            });
+            nextBtn.addEventListener('click', () => {
+                if (current < getMaxIndex()) {
+                    current++;
+                    updatePosition();
+                }
+            });
+
+            // Touch/swipe
+            let startX = 0;
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, {
+                passive: true
+            });
+            track.addEventListener('touchend', (e) => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) {
+                    diff > 0 ? nextBtn.click() : prevBtn.click();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                buildDots();
+                updatePosition();
+            });
+            buildDots();
+            updatePosition();
+        })();
     </script>
 </body>
 

@@ -13,18 +13,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Rotas públicas
-Route::get('/servicos', function () {
-    return view('servicos');
-})->name('servicos');
 
-Route::get('/sobre', function () {
-    return view('sobre');
-})->name('sobre');
-
-Route::get('/contato', function () {
-    return view('contato');
-})->name('contato');
 
 Route::get('/homepage', function () {
     return view('homepage');

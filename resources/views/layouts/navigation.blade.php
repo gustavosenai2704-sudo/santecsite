@@ -3,9 +3,7 @@
     <div class="nav-container" id="navContainer">
         <!-- Logo e Nome -->
         <a href="{{ route('homepage') }}" class="nav-brand">
-            <img src="https://santecdesentupidora.com.br/wp-content/uploads/2024/08/logo-santec-desentupidora.png" 
-                 alt="Santec Desentupidora" 
-                 class="nav-brand-logo">
+            <img src="logosantec.png" alt="Santec Desentupidora" class="nav-brand-logo">
             <div>
                 <h1 class="nav-brand-text">Santec<span class="nav-brand-subtext">Desentupidora</span></h1>
             </div>
@@ -14,26 +12,18 @@
         <!-- Links de Navegação -->
         <ul class="nav-links">
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}" 
-                   href="{{ route('homepage') }}">
+                <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}" href="#hero">
                     Início
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('servicos') ? 'active' : '' }}" 
-                   href="{{ route('servicos') }}">
+                <a class="nav-link {{ request()->routeIs('servicos') ? 'active' : '' }}" href="#servicos">
                     Serviços
                 </a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('sobre') ? 'active' : '' }}" 
-                   href="{{ route('sobre') }}">
-                    Sobre
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('contato') ? 'active' : '' }}" 
-                   href="{{ route('contato') }}">
+                <a class="nav-link {{ request()->routeIs('contato') ? 'active' : '' }}" href="#contato">
                     Contato
                 </a>
             </li>
@@ -41,7 +31,8 @@
 
         <!-- Botões de Ação -->
         <div class="d-flex align-items-center gap-3">
-            <a href="{{ route('contato') }}" class="nav-btn">
+            <a href="https://wa.me/5515998341209?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20atendimento%20da%20Santec%20Desentupidora."
+                class="nav-btn">
                 <i class="bi bi-whatsapp"></i>
                 Solicitar Orçamento
             </a>
