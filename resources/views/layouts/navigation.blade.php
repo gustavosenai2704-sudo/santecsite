@@ -12,17 +12,17 @@
         <!-- Links de Navegação -->
         <ul class="nav-links">
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}" href="#hero">
+                <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}" href="{{ route('homepage') }}#hero">
                     Início
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('servicos') ? 'active' : '' }}" href="#servicos">
+                <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}" href="{{ route('homepage') }}#servicos">
                     Serviços
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('contato') ? 'active' : '' }}" href="#contato">
+                <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}" href="{{ route('homepage') }}#contato">
                     Contato
                 </a>
             </li>
@@ -30,7 +30,7 @@
 
         <!-- Botões de Ação -->
         <div class="d-flex align-items-center gap-3">
-            <a href="https://wa.me/5515998341209?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20atendimento%20da%20Santec%20Desentupidora."
+            <a href="https://wa.me/5515998341209?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20atendimento%20da%20Santec%20Desentupidora."
                 class="nav-btn">
                 <i class="bi bi-whatsapp"></i>
                 Solicitar Orçamento
@@ -38,3 +38,5 @@
         </div>
     </div>
 </nav>
+
+

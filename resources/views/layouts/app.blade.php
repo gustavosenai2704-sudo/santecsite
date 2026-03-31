@@ -312,23 +312,19 @@
             gap: 1rem;
         }
 
-        .info-card-combined-row {
+        .info-card-combined-line {
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .info-card-combined-row .info-icon {
-            font-size: 2rem;
-        }
-
-        .info-card-combined-row .info-text p {
-            margin: 0;
-        }
-
-        .info-card-combined-row .info-text strong {
+        .info-card-combined-line strong {
             display: block;
-            margin-top: 0.2rem;
+            font-size: 1.05rem;
+            line-height: 1.4;
+            color: #ffffff;
         }
 
         .info-card::before {
@@ -816,10 +812,6 @@
                 text-align: center;
             }
 
-            .nav-links {
-                gap: 0.5rem 1rem;
-            }
-
             .nav-link {
                 font-size: 0.875rem;
             }
@@ -832,6 +824,7 @@
 
             .hero {
                 min-height: auto;
+                overflow: visible;
                 padding-top: 10.8rem;
                 padding-bottom: 7.5rem;
                 padding-left: 1rem;
@@ -867,47 +860,74 @@
                 display: block;
                 width: 100%;
                 min-width: 0;
-                max-width: 100%;
-                padding: 1.25rem 1rem;
+                max-width: 92%;
+                overflow: visible;
+                padding: 1rem 0.9rem;
                 border-radius: 20px;
+                margin: 0 auto;
             }
 
             .info-card-combined h3 {
                 text-align: center;
-                margin-bottom: 1rem;
+                margin-bottom: 0.8rem;
+                color: #ffffff;
+                font-size: 1rem;
+                font-weight: 600;
             }
 
             .info-card-combined-content {
-                gap: 0.75rem;
-            }
-
-            .info-card-combined-row {
                 display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .info-card-combined-line {
+                display: flex;
+                flex: 1 1 0;
                 align-items: center;
-                gap: 0.75rem;
-                padding: 0.75rem 0.25rem;
-                border-top: 1px solid rgba(255, 255, 255, 0.14);
-            }
-
-            .info-card-combined-row:first-child {
+                gap: 0.6rem;
+                padding: 0.35rem 0.45rem;
                 border-top: 0;
-                padding-top: 0;
             }
 
-            .info-card-combined-row .info-icon {
-                font-size: 1.6rem;
+            .info-card-combined-line {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                min-width: 0;
+                text-align: left;
             }
 
-            .info-card-combined-row .info-text p {
-                font-size: 0.82rem;
-                line-height: 1.3;
-                margin: 0;
+            .info-card-combined-line:last-child {
+                padding-left: 0.45rem;
             }
 
-            .info-card-combined-row .info-text strong {
+            .info-card-combined-line .info-icon {
+                color: #00a859;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+
+            .info-card-combined-line .info-text {
+                min-width: 0;
+            }
+
+            .info-card-combined-line .info-text p {
+                color: rgba(255, 255, 255, 0.72);
+                font-size: 0.62rem;
+                font-weight: 500;
+                letter-spacing: 0.08em;
+                margin: 0 0 0.08rem;
+            }
+
+            .info-card-combined-line .info-text strong {
                 display: block;
-                font-size: 0.98rem;
+                word-break: break-word;
+                color: #ffffff;
+                font-size: 0.82rem;
                 line-height: 1.35;
+                font-weight: 700;
             }
 
             .info-card-schedule,
@@ -919,8 +939,8 @@
             .info-cards {
                 position: relative;
                 z-index: 12;
-                margin: -4.5rem auto 3rem;
-                padding: 0 1rem;
+                margin: -7.5rem auto 3rem;
+                padding: 0 0.7rem;
             }
 
             #servicos {
@@ -1000,9 +1020,15 @@
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    if (href && href.startsWith('#') && href.length > 1) {
+                    if (!href) return;
+
+                    const url = new URL(href, window.location.origin);
+                    const isSamePage = url.pathname === window.location.pathname;
+                    const hash = url.hash;
+
+                    if (isSamePage && hash && hash.length > 1) {
                         e.preventDefault();
-                        const targetElement = document.querySelector(href);
+                        const targetElement = document.querySelector(hash);
                         if (targetElement) {
                             window.scrollTo({
                                 top: targetElement.offsetTop - 100,
@@ -1028,7 +1054,11 @@
                 });
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
+                    const href = link.getAttribute('href');
+                    if (!href) return;
+
+                    const url = new URL(href, window.location.origin);
+                    if (url.pathname === window.location.pathname && url.hash === `#${current}`) {
                         link.classList.add('active');
                     }
                 });

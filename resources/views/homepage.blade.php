@@ -21,13 +21,23 @@
 
                 <div class="info-card-combined-content">
                     <div class="info-card-combined-line">
-                        <span class="info-card-combined-label">Horario</span>
-                        <strong>SEG - SEXTA | 08hr - 18hr</strong>
+                        <div class="info-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <div class="info-text">
+                            <p>SEG - SEXTA</p>
+                            <strong>08hr - 18hr</strong>
+                        </div>
                     </div>
 
                     <div class="info-card-combined-line">
-                        <span class="info-card-combined-label">Contato</span>
-                        <strong>(15) 3251-3021</strong>
+                        <div class="info-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <div class="info-text">
+                            <p>CONTATO</p>
+                            <strong>(15) 3251-3021</strong>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -253,7 +263,7 @@
                     Nossa equipe de desentupidora tem o objetivo de oferecer serviços rápidos e eficientes,
                     com os melhores profissionais e preços acessíveis para você.
                 </p>
-                <a href="#contato"
+                <a href="{{ route('homepage') }}#contato"
                     class="inline-block rounded-full px-10 py-3 mb-14 uppercase tracking-widest text-xs font-semibold text-white transition-colors"
                     style="background-color:  rgb(0, 168, 89)">
                     Solicitar Orçamento
@@ -383,7 +393,7 @@
                         sua visita com a <strong>Santec Desentupidora.</strong>
                     </p>
 
-                    <a href="#"
+                    <a href="https://wa.me/5515998341209?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20atendimento%20da%20Santec%20Desentupidora."
                         class="inline-block bg-[#16a34a] hover:bg-[#166534] text-white font-semibold text-base md:text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
                         SOLICITAR ATENDIMENTO
                     </a>
@@ -465,7 +475,7 @@
                                         d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                 </svg>
                             </a>
-                            <a href="https://wa.me/5515998341209?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20atendimento%20da%20Santec%20Desentupidora.""
+                            <a href="https://wa.me/5515998341209?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20atendimento%20da%20Santec%20Desentupidora."
                                 class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors"
                                 aria-label="WhatsApp">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -480,15 +490,15 @@
                     <div>
                         <h4 class="text-white font-semibold text-base mb-4">Serviços</h4>
                         <ul class="space-y-3 text-sm">
-                            <li><a href="#" class="hover:text-green-400 transition-colors">Desentupimento
+                            <li><a href="{{ route('homepage') }}#servicos" class="hover:text-green-400 transition-colors">Desentupimento
                                     Residencial</a></li>
-                            <li><a href="#" class="hover:text-green-400 transition-colors">Desentupimento
+                            <li><a href="{{ route('homepage') }}#servicos" class="hover:text-green-400 transition-colors">Desentupimento
                                     Comercial</a></li>
-                            <li><a href="#" class="hover:text-green-400 transition-colors">Desentupimento
+                            <li><a href="{{ route('homepage') }}#servicos" class="hover:text-green-400 transition-colors">Desentupimento
                                     Industrial</a></li>
-                            <li><a href="#" class="hover:text-green-400 transition-colors">Limpa Fossa</a></li>
-                            <li><a href="#" class="hover:text-green-400 transition-colors">Hidrojateamento</a></li>
-                            <li><a href="#" class="hover:text-green-400 transition-colors">Manutenção Preventiva</a>
+                            <li><a href="{{ route('homepage') }}#servicos" class="hover:text-green-400 transition-colors">Limpa Fossa</a></li>
+                            <li><a href="{{ route('homepage') }}#servicos" class="hover:text-green-400 transition-colors">Hidrojateamento</a></li>
+                            <li><a href="{{ route('homepage') }}#servicos" class="hover:text-green-400 transition-colors">Manutenção Preventiva</a>
                             </li>
                         </ul>
                     </div>
@@ -542,8 +552,8 @@
                     class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
                     <p>&copy; 2025 Santec Desentupidora. Todos os direitos reservados.</p>
                     <div class="flex gap-6">
-                        <a href="#" class="hover:text-green-400 transition-colors">Política de Privacidade</a>
-                        <a href="#" class="hover:text-green-400 transition-colors">Termos de Uso</a>
+                        <a href="{{ route('privacy') }}" class="hover:text-green-400 transition-colors">Política de Privacidade</a>
+                        <a href="{{ route('terms') }}" class="hover:text-green-400 transition-colors">Termos de Uso</a>
                     </div>
                 </div>
             </div>
@@ -553,3 +563,5 @@
 
     </div>
 @endsection
+
+
