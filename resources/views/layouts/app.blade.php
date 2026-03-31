@@ -43,6 +43,10 @@
             min-height: 100vh;
         }
 
+        .santec-page {
+            position: relative;
+        }
+
         /* ===================== NAVBAR ===================== */
         .custom-navbar {
             position: fixed;
@@ -194,28 +198,26 @@
 
         /* ===================== HERO ===================== */
         .hero {
-            min-height: 100vh;
-            padding-bottom: 80px;
+            min-height: clamp(820px, 63vw, 1000px);
             position: relative;
             overflow: hidden;
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 20%, rgba(0, 168, 89, 0.25) 100%), url('santechome.jpeg') center/cover no-repeat;
             display: flex;
-            align-items: center;
-            padding: 0 8%;
+            align-items: flex-start;
+            padding: 7.5rem 8% 18rem;
             color: white;
         }
 
         .hero-text {
-            max-width: 630px;
+            max-width: min(100%, 680px);
             animation: fadeIn 1s ease;
         }
 
-        /* ajuste apenas para desktop */
         @media (min-width: 1024px) {
             .hero {
                 align-items: flex-start;
                 padding-top: 7rem;
-                /* empurra menos o conteúdo, aproxima da navbar */
+                padding-bottom: 18rem;
             }
 
             .hero-text {
@@ -229,26 +231,42 @@
             margin-bottom: 15px;
             color: #fff;
             opacity: 0.9;
-            font-size: 2rem;
+            font-size: clamp(1.1rem, 1.7vw, 2rem);
         }
 
         .hero-text h1 {
-            font-size: 100px;
+            font-size: clamp(5rem, 7vw, 7.125rem);
             line-height: 1.1;
             margin-bottom: 20px;
             color: white;
+            font-weight: 400;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-text h1 span {
             color: #00a859;
-            display: block;
-            font-size: 100px;
+            display: inline;
+            font-size: inherit;
+            font-weight: 400;
             text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
         }
 
+        .hero-text h1 .hero-title-light {
+            display: inline;
+            color: inherit;
+            font-size: inherit;
+            font-weight: 400;
+            text-shadow: inherit;
+        }
+
+        .hero-text h1 .hero-title-line {
+            display: inline-block;
+            white-space: nowrap;
+            color: #ffffff;
+        }
+
         .hero-text p {
-            font-size: 18px;
+            font-size: clamp(1rem, 1.3vw, 1.25rem);
             line-height: 1.6;
             color: #f0f0f0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -260,28 +278,57 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 50px;
-            max-width: 1400px;
-            margin: -180px auto 100px auto;
+            gap: clamp(1.75rem, 4vw, 4.5rem);
+            max-width: min(100%, 1760px);
+            margin: -315px auto 145px auto;
             position: relative;
             z-index: 10;
             flex-wrap: nowrap;
-            padding: 0 40px;
+            padding: 0 clamp(1.25rem, 4vw, 3.5rem);
         }
 
         .info-card {
             position: relative;
             overflow: hidden;
-            flex: 1;
-            min-width: 300px;
-            max-width: 380px;
+            flex: 1 1 0;
+            min-width: clamp(280px, 24vw, 390px);
+            max-width: clamp(360px, 31vw, 520px);
             background: rgba(0, 0, 0, 0.35);
             backdrop-filter: blur(10px);
-            padding: 30px 35px;
+            padding: clamp(1.75rem, 2.2vw, 2.625rem) clamp(1.9rem, 2.4vw, 2.875rem);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+        }
+
+        .info-card-combined {
+            display: none;
+        }
+
+        .info-card-combined-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .info-card-combined-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-card-combined-row .info-icon {
+            font-size: 2rem;
+        }
+
+        .info-card-combined-row .info-text p {
+            margin: 0;
+        }
+
+        .info-card-combined-row .info-text strong {
+            display: block;
+            margin-top: 0.2rem;
         }
 
         .info-card::before {
@@ -322,25 +369,27 @@
         .info-card h3 {
             margin-bottom: 12px;
             color: #ffffff;
-            font-size: 20px;
+            font-size: clamp(1.25rem, 1.7vw, 1.5rem);
             font-weight: 600;
         }
 
         .info-text p {
             color: rgba(255, 255, 255, 0.85);
-            font-size: 16px;
+            font-size: clamp(0.95rem, 1.2vw, 1.125rem);
             margin: 8px 0;
             line-height: 1.6;
         }
 
         .info-text strong {
-            font-size: 20px;
+            font-size: clamp(1.15rem, 1.8vw, 1.5625rem);
             color: #ffffff;
+            font-weight: 700;
         }
+
 
         /* ===================== SERVIÇOS ===================== */
         .services {
-            padding: 120px 8% 60px;
+            padding: 180px 8% 60px;
             /* menos padding-top para subir */
             background-color: hsl(220, 14%, 94%);
             margin-top: -180px;
@@ -486,6 +535,7 @@
         .service-card h3 {
             font-size: 24px;
             margin-bottom: 12px;
+            color: #1f2937;
         }
 
         .service-card p {
@@ -509,12 +559,401 @@
             background: #00a859;
             color: white;
         }
+
+        @media (max-width: 991px) {
+            .custom-navbar {
+                top: 0.75rem;
+                padding: 0 0.75rem;
+            }
+
+            .nav-container {
+                width: 100%;
+                border-radius: 28px;
+                padding: 1rem 1.25rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .nav-brand {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.85rem 1.25rem;
+            }
+
+            .nav-links .nav-item {
+                flex: 0 0 auto;
+            }
+
+            .nav-container>.d-flex {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 10.5rem 1.25rem 5rem;
+                align-items: flex-start;
+                background-position: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-text h3 {
+                font-size: 1rem;
+                letter-spacing: 0.18em;
+                margin-bottom: 0.85rem;
+            }
+
+            .hero-text h1,
+            .hero-text h1 span {
+                font-size: clamp(2.8rem, 14vw, 4.6rem);
+                line-height: 0.98;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            .info-cards {
+                flex-direction: column;
+                gap: 1rem;
+                margin: -48px auto 56px;
+                padding: 0 1rem;
+                max-width: 100%;
+            }
+
+            .info-card {
+                min-width: 0;
+                width: 100%;
+                max-width: none;
+                padding: 1.25rem;
+                border-radius: 18px;
+            }
+
+            .info-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .info-icon {
+                font-size: 1.5rem;
+            }
+
+            .info-text p {
+                font-size: 0.9rem;
+                margin: 0;
+            }
+
+            .info-text strong {
+                display: block;
+                font-size: 1rem;
+                line-height: 1.4;
+                word-break: break-word;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .custom-navbar {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                width: min(92%, 920px);
+                padding: 0.85rem 1rem;
+                border-radius: 32px;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                gap: 0.75rem;
+            }
+
+            .nav-brand {
+                width: auto;
+                gap: 0.6rem;
+            }
+
+            .nav-brand-logo {
+                height: 28px;
+            }
+
+            .nav-brand-text {
+                font-size: 1.05rem;
+            }
+
+            .nav-links {
+                width: auto;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+            }
+
+            .nav-container>.d-flex {
+                width: auto;
+            }
+
+            .nav-btn {
+                width: auto;
+                padding: 0.7rem 1rem;
+                font-size: 0.78rem;
+                white-space: nowrap;
+            }
+
+            .hero {
+                min-height: clamp(760px, 90vw, 940px);
+                padding: 8.2rem 1.5rem 15rem;
+            }
+
+            .hero-text {
+                max-width: 540px;
+            }
+
+            .hero-text h3 {
+                font-size: 1.05rem;
+            }
+
+            .hero-text h1,
+            .hero-text h1 span {
+                font-size: clamp(3.6rem, 7.2vw, 4.9rem);
+            }
+
+            .hero-text p {
+                font-size: 0.95rem;
+                max-width: 460px;
+            }
+
+            .info-cards {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: stretch;
+                gap: clamp(1rem, 2vw, 1.35rem);
+                margin: -14.5rem auto 88px;
+                max-width: min(94%, 820px);
+                padding: 0 0.5rem;
+            }
+
+            .info-card {
+                flex: 1 1 0;
+                min-height: 170px;
+                min-width: 0;
+                max-width: none;
+                padding: 1.5rem 1.35rem;
+            }
+
+            .info-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.9rem;
+            }
+
+            .info-row {
+                gap: 0.85rem;
+                align-items: center;
+            }
+
+            .info-icon {
+                font-size: 1.65rem;
+            }
+
+            .info-text p {
+                font-size: 0.9rem;
+                line-height: 1.45;
+            }
+
+            .info-text strong {
+                font-size: 1.2rem;
+                line-height: 1.35;
+            }
+
+            .info-card-address {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .custom-navbar {
+                top: 0.6rem;
+                padding: 0 0.7rem;
+            }
+
+            .nav-container {
+                border-radius: 24px;
+                padding: 0.9rem 1rem;
+                gap: 0.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-brand {
+                gap: 0.5rem;
+            }
+
+            .nav-brand-logo {
+                height: 26px;
+            }
+
+            .nav-brand-text {
+                font-size: 0.98rem;
+                text-align: center;
+            }
+
+            .nav-links {
+                gap: 0.5rem 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.875rem;
+            }
+
+            .nav-btn {
+                padding: 0.82rem 1rem;
+                font-size: 0.82rem;
+                border-radius: 999px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 10.8rem;
+                padding-bottom: 7.5rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .hero-text h3 {
+                font-size: 0.92rem;
+                letter-spacing: 0.16em;
+                margin-bottom: 0.7rem;
+            }
+
+            .hero-text h1 {
+                font-size: clamp(3rem, 15vw, 4.2rem);
+                line-height: 1.02;
+                margin-bottom: 0.85rem;
+            }
+
+            .hero-text h1 span,
+            .hero-text h1 .hero-title-line {
+                font-size: inherit;
+                white-space: normal;
+                display: inline;
+            }
+
+            .hero-text p {
+                font-size: 0.98rem;
+                line-height: 1.65;
+                max-width: 22rem;
+            }
+
+            .info-card-combined {
+                display: block;
+                width: 100%;
+                min-width: 0;
+                max-width: 100%;
+                padding: 1.25rem 1rem;
+                border-radius: 20px;
+            }
+
+            .info-card-combined h3 {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .info-card-combined-content {
+                gap: 0.75rem;
+            }
+
+            .info-card-combined-row {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.75rem 0.25rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.14);
+            }
+
+            .info-card-combined-row:first-child {
+                border-top: 0;
+                padding-top: 0;
+            }
+
+            .info-card-combined-row .info-icon {
+                font-size: 1.6rem;
+            }
+
+            .info-card-combined-row .info-text p {
+                font-size: 0.82rem;
+                line-height: 1.3;
+                margin: 0;
+            }
+
+            .info-card-combined-row .info-text strong {
+                display: block;
+                font-size: 0.98rem;
+                line-height: 1.35;
+            }
+
+            .info-card-schedule,
+            .info-card-contact,
+            .info-card-address {
+                display: none;
+            }
+
+            .info-cards {
+                position: relative;
+                z-index: 12;
+                margin: -4.5rem auto 3rem;
+                padding: 0 1rem;
+            }
+
+            #servicos {
+                scroll-margin-top: 7rem;
+            }
+
+            #carousel-track {
+                gap: 1rem;
+            }
+
+            #carousel-dots {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            footer .max-w-7xl,
+            footer .max-w-6xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            footer a,
+            footer span,
+            footer p {
+                overflow-wrap: anywhere;
+            }
+        }
+
     </style>
 </head>
 
 <body class="font-sans antialiased">
     @include('layouts.navigation')
-    <div class="navbar-space"></div>
 
     <main>
         @yield('content')
@@ -679,7 +1118,7 @@
 
             function getSlideWidth() {
                 if (!slides[0]) return 0;
-                const gap = 40; // gap-10 = 2.5rem = 40px
+                const gap = parseFloat(window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap || 0);
                 return slides[0].offsetWidth + gap;
             }
 

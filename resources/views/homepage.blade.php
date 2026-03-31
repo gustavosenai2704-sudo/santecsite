@@ -6,7 +6,7 @@
         <section class="hero" id="hero">
             <div class="hero-text">
                 <h3>DESENTUPIDORA EM TATUÍ PARA</h3>
-                <h1>Seu problema <br><span>resolvido</span></h1>
+                <h1><span class="hero-title-line"><span class="hero-title-light">Seu</span> problema</span> <span>resolvido</span></h1>
                 <p>
                     A Santec Desentupidora tem o objetivo de trazer soluções em desentupimento
                     com os melhores profissionais da cidade de Tatuí e região.
@@ -16,8 +16,24 @@
 
         <section class="info-cards">
 
+            <div class="info-card info-card-combined">
+                <h3>Atendimento</h3>
+
+                <div class="info-card-combined-content">
+                    <div class="info-card-combined-line">
+                        <span class="info-card-combined-label">Horario</span>
+                        <strong>SEG - SEXTA | 08hr - 18hr</strong>
+                    </div>
+
+                    <div class="info-card-combined-line">
+                        <span class="info-card-combined-label">Contato</span>
+                        <strong>(15) 3251-3021</strong>
+                    </div>
+                </div>
+            </div>
+
             <!-- CARD 1 -->
-            <div class="info-card">
+            <div class="info-card info-card-schedule">
                 <h3>Horário de atendimento</h3>
 
                 <div class="info-row">
@@ -33,7 +49,7 @@
             </div>
 
             <!-- CARD 2 -->
-            <div class="info-card">
+            <div class="info-card info-card-address">
                 <h3>Endereço do pátio</h3>
 
                 <div class="info-row">
@@ -49,7 +65,7 @@
             </div>
 
             <!-- CARD 3 -->
-            <div class="info-card">
+            <div class="info-card info-card-contact">
                 <h3>Contato</h3>
 
                 <div class="info-row">
@@ -65,11 +81,11 @@
             </div>
 
         </section>
-        <section class="py-2 md:py-6 px-4 " id="servicos">
+        <section class="py-10 md:py-6 px-4 sm:px-5" id="servicos">
             <div class="max-w-6xl mx-auto">
 
                 <!-- Título -->
-                <div class="text-center mb-12">
+                <div class="text-center mb-8 md:mb-12">
                     <h1 class="font-display text-4xl md:text-6xl font-bold mb-4">
                         Nossos <span class="text-brand-dark">Serviços</span>
                     </h1>
@@ -80,7 +96,7 @@
                 </div>
 
                 <!-- Galeria de Fotos -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-20">
                     <div class="relative overflow-hidden rounded-2xl aspect-[3/4] group">
                         <img src="1.jpg" alt="Hidrojateamento profissional" loading="lazy"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -113,12 +129,12 @@
 
                 <div class="relative" id="carousel-container">
                     <div class="overflow-hidden rounded-2xl">
-                        <div id="carousel-track" class="flex gap-10 transition-transform duration-500 ease-out">
+                        <div id="carousel-track" class="flex gap-4 md:gap-10 transition-transform duration-500 ease-out">
 
                             <!-- Card 1 -->
                             <div
-                                class="flex-[0_0_85%] md:flex-[0_0_calc(45%-20px)] lg:flex-[0_0_calc(33.333%-28px)] min-w-0">
-                                <div class="rounded-3xl bg-white px-10 py-7 shadow-md border border-gray-100 transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-2 h-full"
+                                class="flex-[0_0_88%] md:flex-[0_0_calc(45%-20px)] lg:flex-[0_0_calc(33.333%-28px)] min-w-0">
+                                <div class="rounded-3xl bg-white px-5 py-6 md:px-10 md:py-7 shadow-md border border-gray-100 transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-2 h-full"
                                     style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);">
                                     <div
                                         class="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-green-50">
@@ -139,8 +155,8 @@
 
                             <!-- Card 3 -->
                             <div
-                                class="flex-[0_0_85%] md:flex-[0_0_calc(45%-20px)] lg:flex-[0_0_calc(33.333%-28px)] min-w-0">
-                                <div class="rounded-3xl bg-white px-10 py-7 shadow-md border border-gray-100 transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-2 h-full"
+                                class="flex-[0_0_88%] md:flex-[0_0_calc(45%-20px)] lg:flex-[0_0_calc(33.333%-28px)] min-w-0">
+                                <div class="rounded-3xl bg-white px-5 py-6 md:px-10 md:py-7 shadow-md border border-gray-100 transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-2 h-full"
                                     style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);">
                                     <div
                                         class="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-green-50">
@@ -158,8 +174,8 @@
 
                             <!-- Card 4 -->
                             <div
-                                class="flex-[0_0_85%] md:flex-[0_0_calc(45%-20px)] lg:flex-[0_0_calc(33.333%-28px)] min-w-0">
-                                <div class="rounded-3xl bg-white px-10 py-7 shadow-md border border-gray-100 transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-2 h-full"
+                                class="flex-[0_0_88%] md:flex-[0_0_calc(45%-20px)] lg:flex-[0_0_calc(33.333%-28px)] min-w-0">
+                                <div class="rounded-3xl bg-white px-5 py-6 md:px-10 md:py-7 shadow-md border border-gray-100 transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-2 h-full"
                                     style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);">
                                     <div
                                         class="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-green-50">
@@ -177,8 +193,8 @@
 
                             <!-- Card 5 -->
                             <div
-                                class="flex-[0_0_85%] md:flex-[0_0_calc(45%-20px)] lg:flex-[0_0_calc(33.333%-28px)] min-w-0">
-                                <div class="rounded-3xl bg-white px-10 py-7 shadow-md border border-gray-100 transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-2 h-full"
+                                class="flex-[0_0_88%] md:flex-[0_0_calc(45%-20px)] lg:flex-[0_0_calc(33.333%-28px)] min-w-0">
+                                <div class="rounded-3xl bg-white px-5 py-6 md:px-10 md:py-7 shadow-md border border-gray-100 transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-2 h-full"
                                     style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);">
                                     <div
                                         class="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-green-50">
@@ -200,8 +216,8 @@
                     </div>
 
                     <!-- Controles -->
-                    <div class="flex items-center justify-between mt-8">
-                        <div id="carousel-dots" class="flex gap-2"></div>
+                    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mt-8">
+                        <div id="carousel-dots" class="flex gap-2 justify-center sm:justify-start"></div>
                         <div class="flex gap-3">
                             <button id="carousel-prev"
                                 class="w-11 h-11 rounded-full border border-green-600 text-green-600 flex items-center justify-center transition-all hover:bg-green-600 hover:text-white shadow-sm">
@@ -439,7 +455,7 @@
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                                </svg>
+                                </svg>      
                             </a>
                             <a href="https://www.facebook.com/desentupidorasantec"
                                 class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors"

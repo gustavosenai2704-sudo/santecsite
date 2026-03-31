@@ -21,7 +21,6 @@
                     Serviços
                 </a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('contato') ? 'active' : '' }}" href="#contato">
                     Contato
